@@ -49,7 +49,7 @@ public class BaseAPI {
         requestSpecBuilder.setBody(body);
     }
 
-    private JsonObject getBodyAsJsonObject(){
+    public JsonObject getBodyAsJsonObject(){
         String s = ((QueryableRequestSpecification)requestSpecBuilder.build()).getBody();
         JsonObject bodyJsonObject;
         if(s == null) return new JsonObject();
@@ -87,7 +87,7 @@ public class BaseAPI {
     }
 
     private RequestSpecification buildRequestSpec(){
-        setRequestSpecification(requestSpecBuilder.addFilter(new CustomLogFilter()).build());
+        setRequestSpecification(requestSpecBuilder.log(LogDetail.BODY).addFilter(new CustomLogFilter()).build());
         return getRequestSpecification();
     }
 

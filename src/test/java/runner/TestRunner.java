@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/main/resources",
         glue = "com.seera",
         strict = true,
-        tags = {"@challenge02"},
+        tags = {"not @ignore"},
         plugin = { "pretty", "html:build/cucumber-html-reports"},
         monochrome = true
 )
